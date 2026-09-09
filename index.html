@@ -7,15 +7,47 @@
 </head>
 <body>
 
-  <h1>Portföy Takip</h1>
-  <div class="alt-baslik" id="son-guncelleme">Yükleniyor...</div>
-  <button class="yenile-btn" onclick="verileriYukle()">↻ Yenile</button>
+  <div class="ust-satir">
+    <div>
+      <h1>Portföy Takip</h1>
+      <div class="alt-baslik" id="son-guncelleme">Yükleniyor...</div>
+    </div>
+    <div>
+      <button class="yenile-btn" onclick="verileriYukle()">↻ Yenile</button>
+      <button class="ekle-btn" onclick="modalAc()">+ Yeni Lot</button>
+    </div>
+  </div>
 
   <div id="icerik">
     <div class="yukleniyor">Veriler çekiliyor...</div>
   </div>
 
-  <script src = "script.js"></script>
+  <!-- Yeni lot ekleme pop-up'ı -->
+  <div id="modal-arkaplan" class="modal-arkaplan gizli" onclick="modalDisaTikla(event)">
+    <div class="modal-kutu">
+      <h2>Yeni Lot Ekle</h2>
+      <form id="lot-formu" onsubmit="lotEkle(event)">
+        <label>Hisse Kodu</label>
+        <input type="text" id="form-hisse" placeholder="Örn: POLTK" required>
+
+        <label>Adet</label>
+        <input type="number" id="form-adet" step="any" placeholder="Örn: 10" required>
+
+        <label>Alış Fiyatı (TL)</label>
+        <input type="number" id="form-fiyat" step="any" placeholder="Örn: 4195" required>
+
+        <label>Kâr Hedefi (%)</label>
+        <input type="number" id="form-hedef" step="any" value="10" required>
+
+        <div class="modal-butonlar">
+          <button type="button" class="iptal-btn" onclick="modalKapat()">İptal</button>
+          <button type="submit" class="ekle-btn">Ekle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
