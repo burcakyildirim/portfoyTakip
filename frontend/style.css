@@ -1,3 +1,4 @@
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #0f1117;
@@ -54,7 +55,7 @@ tr:hover {
 .rozet-sat { background: #14532d; color: #4ade80; }
 .rozet-bekle { background: #3f2d0f; color: #fbbf24; }
 .rozet-veriyok { background: #2a2a2a; color: #999; }
-
+ 
 .yenile-btn, .ekle-btn, .iptal-btn, .sat-btn {
   border: none;
   border-radius: 6px;
@@ -68,14 +69,14 @@ tr:hover {
   margin-right: 8px;
 }
 .yenile-btn:hover { background: #333846; }
-
+ 
 .ekle-btn {
   background: #4ade80;
   color: #0f1117;
   font-weight: 600;
 }
 .ekle-btn:hover { background: #6ee89a; }
-
+ 
 .sat-btn {
   background: #3f2d0f;
   color: #fbbf24;
@@ -83,9 +84,9 @@ tr:hover {
   font-size: 12px;
 }
 .sat-btn:hover { background: #52390f; }
-
+ 
 .yukleniyor { color: #888; padding: 20px; }
-
+ 
 /* ---------- Pop-up (modal) ---------- */
 .modal-arkaplan {
   position: fixed;
@@ -137,3 +138,84 @@ tr:hover {
   color: #e6e6e6;
 }
 .iptal-btn:hover { background: #333846; }
+ 
+/* ---------- Tıklanabilir hisse hücresi ---------- */
+.hisse-hucre {
+  cursor: pointer;
+  text-decoration: underline dotted #555;
+}
+.hisse-hucre:hover {
+  color: #4ade80;
+}
+ 
+/* ---------- Detay paneli ---------- */
+.detay-kutu {
+  width: 420px;
+}
+.detay-ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detay-ust h2 {
+  margin: 0;
+}
+.kapat-btn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.kapat-btn:hover { color: #e6e6e6; }
+ 
+/* ---------- Hisse detay sayfası ---------- */
+.geri-link {
+  color: #999;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.geri-link:hover { color: #4ade80; }
+ 
+#detay-icerik {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+ 
+.vade-kutu {
+  background: #171a22;
+  border: 1px solid #262a35;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  flex: 1;
+  min-width: 240px;
+  max-width: 340px;
+}
+.vade-kutu h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+.seviye-grubu {
+  margin-bottom: 8px;
+}
+.seviye-grubu:last-child {
+  margin-bottom: 0;
+  padding-top: 8px;
+  border-top: 1px solid #262a35;
+}
+.seviye-satir {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 13px;
+}
+.seviye-satir.direnc span:first-child { color: #f87171; }
+.seviye-satir.destek span:first-child { color: #4ade80; }
+.seviye-satir.pivot span:first-child { color: #fbbf24; font-weight: 600; }
+.seviye-satir.pivot { font-weight: 600; }

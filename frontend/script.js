@@ -33,7 +33,7 @@ async function verileriYukle() {
 
       return `
         <tr>
-          <td><strong>${lot.hisse}</strong></td>
+          <td class="hisse-hucre" onclick="detayAc('${lot.hisse}')"><strong>${lot.hisse}</strong></td>
           <td>${lot.adet}</td>
           <td>${lot.alis_fiyati.toFixed(2)}</td>
           <td>${lot.hedef_fiyat.toFixed(2)}</td>
@@ -126,6 +126,12 @@ async function lotSat(lotId, hisseKodu) {
   } catch (hata) {
     alert(`İşlem başarısız: ${hata.message}`);
   }
+}
+
+// ---------- Hisse detay sayfasına git ----------
+
+function detayAc(hisseKodu) {
+  window.location.href = `hisse-detay.html?hisse=${hisseKodu}`;
 }
 
 verileriYukle();

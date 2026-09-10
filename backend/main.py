@@ -21,8 +21,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from seviyeler import seviyeleri_hesapla
+
 # ============ BURAYI KENDİNE GÖRE DÜZENLE ============
-DB_YOLU = "/Users/burcakyildirim/Desktop/hisse_yönetimi/portfoy.db"
+DB_YOLU = "/Users/burcakyildirim/Desktop/hisse_yönetimi/backend/portfoy.db"
 # =======================================================
 
 app = FastAPI(title="Portföy Takip API")
@@ -133,3 +135,12 @@ def lot_satildi_isaretle(lot_id: int):
     conn.close()
 
     return {"mesaj": f"Lot {lot_id} satıldı olarak işaretlendi"}
+
+
+@app.get("/positions/{hisse}/seviyeler")
+def hisse_seviyeleri(hisse: str):
+    """Bir hisse için kısa/orta/uzun vade pivot destek/direnç + hareketli ortalamaları döner."""
+    sonuc = seviyeleri_hesapla(hisse.upper())
+    if sonuc is None:
+        raise HTTPException(status_code=404, detail="Bu hisse için veri bulunamadı")
+    return sonuc

@@ -11,12 +11,16 @@ Kurulum: gerek yok, sqlite3 Python'a gömülü gelir.
     python3 excel_to_sqlite.py
 """
 
+import os
 import sqlite3
 import pandas as pd
 
-# ============ BURAYI KENDİNE GÖRE DÜZENLE ============
-EXCEL_YOLU = "/Users/burcakyildirim/Desktop/hisse_yönetimi/hisseler.xlsx"
-DB_YOLU = "/Users/burcakyildirim/Desktop/hisse_yönetimi/portfoy.db"
+# Bu dosyanın (excel_to_sqlite.py) bulunduğu klasöre göre otomatik path.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ============ EXCEL DOSYASININ ADINI KENDİNE GÖRE DÜZENLE ============
+EXCEL_YOLU = os.path.join(BASE_DIR, "DOSYA_ADIN.xlsx")
+DB_YOLU = os.path.join(BASE_DIR, "portfoy.db")
 # =======================================================
 
 
